@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
     if (err) {
       res.send('err');
     } else {
-      console.log('q5',result);
+      console.log('q5', result);
       res.send(result);
     }
   });
