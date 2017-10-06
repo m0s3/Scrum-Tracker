@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  {{> nav}}
+  {{> projectNav}}
+</nav>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="mb-0 mt-1">
+      <i class="fa fa-tasks"></i> {{task.title}}</div>
+       <hr class="mt-2">
+       <div class="row mt-3">
+      <div class="col-8">
+      <div class="card mb-3">
+
+        <div class="card-body">
+          <h6 class="card-title mb-1">Task Description</h6>
+          <p class="card-text small">{{task.description}}</p>
+        </div>
+        <hr class="my-0">
+        <div class="col-lg-6 ml-1">
+          <form id="addFeatureForm" action="/tasks/{{task.id}}/addFeature" method="post">
+            <div class="input-group" >
+            <input type="text" style="border-radius:20px;height:30px;font-size:0.8rem;" class="form-control ml-1" placeholder="Add Acceptance Criteria" aria-label="Add Feature" required>
+              <button type="submit" class="fabutton btn ml-2">
+                  <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="card-body small bg-faded" id="featuresDiv">
+
+        </div>
+        <div class="card-footer small text-muted">
+          <div class="progress">
+            <div id = "progressBar" class="progress-bar progress-bar-striped bg-info" role="progressbar" style="" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="col-4">
+        <div class="card mb-3">
+
+          <div class="card-body">
+            <h6 class="card-title">State: <span class="badge badge-secondary" id="stateName">{{task.name}}</span>
+            <i class="dropdown-toggle" aria-hidden="true" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </i>
+            <div class="dropdown-menu" id="stateList" aria-labelledby="dropdownMenuButton" >
+            </div>
+            </h6>
+            <hr class="mt-2">
+            <div id="assignDiv">
+              <h6 class="card-title " >
+                Assign To: <span class="badge badge-primary"> </span>
+                <i class="dropdown-toggle" aria-hidden="true" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </i>
+                <div class="dropdown-menu" id="assignList" aria-labelledby="dropdownMenuButton">
+                </div>
+              </h6>
+              <hr class="mt-2">
+            </div>
+
+            <h6 class="card-title " id="priorityId">Priority: <span class="badge badge-danger" style="background-color:{{task.priorityColor}}">{{task.priority}}
+             </span>
+              <i class="dropdown-toggle" aria-hidden="true" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              </i>
+              <div class="dropdown-menu" id="priorityList" aria-labelledby="dropdownMenuButton" style="min-width:60px;padding:0px;">
+              <a class="dropdown-item" style="background-color:#ff0026" href="#"> 1 </a>
+              <a class="dropdown-item" style="background-color:#f5ff51" href="#"> 2 </a>
+              <a class="dropdown-item" style="background-color:#ff9538" href="#"> 3 </a>
+              <a class="dropdown-item" style="background-color:#3b69f7" href="#"> 4 </a>
+              <a class="dropdown-item" style="background-color:#e4e4e4" href="#"> 5 </a>
+              </div>
+            </h6>
+            <hr class="mt-2">
+            <h6 class="card-title " id ="labels">Labels: <span class="badge badge-danger"</span></h6>
+            <hr class="mt-2">
+            <h6 class="card-title ">Deadline: <i class="fa fa-fw fa-calendar"></i>{{task.deadline}}</h6>
+
+          </div>
+        </div>
+        <div class="card mb-3">
+        <h6 class="card-title ml-3 mt-3">Comments</h6>
+        <div class="col-lg-12">
+          <div class="form-inline">
+            <form id="addCommentForm" action="/tasks/{{task.id}}/addComment" method="post">
+              <img src="{{user.avatar}}" alt="" style="height:25px;border-radius:50%;">
+              <input type="text" style="border-radius:20px;height:30px;font-size:0.8rem;" class="form-control ml-1" placeholder="Add Comment" aria-label="Add Comment" required>
+            </form>
+          </div>
+        </div>
+
+        <!-- <div class="modal fade" id="assignMember" tabindex="-1" role="dialog" aria-labelledby="assignMemberLabel" aria-hidden="true">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title" id="assignMemberLabel">Assign Member</h5>
+                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">×</span>
+                 </button>
+               </div>
+               <div class="modal-body">
+                 <form id="assignMemberForm">
+                  <div class="form-group">
+                    <label for="username" class="form-control-label">Member Name:</label>
+                    <input list="membersList" type="text" class="form-control" id="username" autocomplete="off">
+                    <datalist >
+
+                    </datalist>
+                  </div>
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                  <input type="submit" name="submit" class="btn btn-primary" value="Assign Mamber">
+                </form>
+               </div>
+             </div>
+           </div>
+         </div> -->
+         <div class="dropdown-menu" id="membersList" aria-labelledby="dropdownMenuLink">
+
+         </div>
+
+
+        <div class="card-body" id="commentsDiv">
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

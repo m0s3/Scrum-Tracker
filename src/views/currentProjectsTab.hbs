@@ -1,0 +1,26 @@
+
+<div class="ml-2 my-2">
+  <div class="mb-0 mt-4">
+    <i class="fa fa-tasks"></i> Current Projects</div>
+     <hr class="mt-2">
+</div>
+
+{{#if isEmpty}}
+<div class="ml-2 my-2">
+  <h3>You dont have projects in progress for now !<h3>
+</div>
+{{else}}
+<div class="row ml-1" >
+  {{#each projects}}
+  <div class="col-3 m-2">
+      <a href="projects/{{id}}"><div class="card-header text-center border">{{title}}</div></a>
+    <div class="card-footer small border">
+      <div class="progress">
+        <div class="progress-bar bg-info" role="progressbar" style="width:{{progress}}%" aria-valuenow={{progress}} aria-valuemin="0" aria-valuemax="100">{{progress}}</div>
+      </div>
+    </div>
+  </div>
+
+  {{/each}}
+    </div>
+{{/if}}

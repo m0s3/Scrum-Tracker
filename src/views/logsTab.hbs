@@ -1,0 +1,20 @@
+  <div class="container-fluid ml-3">
+    <div class="mb-0 mt-4">
+      <i class="fa fa-tasks"></i> Project Logs</div>
+       <hr class="mt-2">
+    {{#if isEmpty}}
+    <div class="ml-2 my-2">
+      <h3>You dont have Logs for this project !<h3>
+    </div>
+    {{else}}
+
+    {{#each logs}}
+<div class="card m-2 text-center" >
+  <h5 class="card-title my-2"><a href="{{link}}">{{context}}</a></h5>
+  <spam class="date card-title my-2">{{mdate}}</spam>
+
+</div>
+    {{/each}}
+
+</div>
+  {{/if}}
